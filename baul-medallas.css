@@ -180,4 +180,35 @@
     transform: translateY(-6px);
   }
    }
-   
+
+
+/* Frase debajo del título */
+.cma-frase {
+  position: absolute;
+  top: 235px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 220px;
+  margin: 0;
+  padding: 0;
+
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  letter-spacing: 0.5px;
+
+  color: #f5d65b;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostrar la frase al pasar el ratón */
+.cma1:hover .cma-frase {
+  opacity: 1;
+  visibility: visible;
+}
+
