@@ -93,7 +93,7 @@
   width: 220px;
   text-align: center;
 
-  font-size: 15px;
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 1px;
   line-height: 1.2;
@@ -114,7 +114,7 @@
 
   text-align: center;
   font-family: "Bebas Neue", sans-serif;
-  font-size: 14px;
+  font-size: 8px;
   letter-spacing: 1px;
   line-height: 1.4;
 
@@ -127,7 +127,7 @@
 
 /* Efectos al pasar el ratón */
 .cma1:hover {
-  box-shadow: 0 0 12px rgba(245, 214, 91, 0.25);
+  box-shadow: 0 0 8px rgba(245, 214, 91, 0.25);
 }
 
 .cma1:hover .cma4 {
