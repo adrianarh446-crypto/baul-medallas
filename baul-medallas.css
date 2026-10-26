@@ -1,31 +1,28 @@
 
-/* =========================================
-   MEDALLA ENCANTADA
-   Fantasia oscura - Foroactivo
-   ========================================= */
+/* ==========================================
+   MEDALLA ENCANTADA — VERSION COMPACTA
+   ========================================== */
 
 .medalla-magica {
   --oro: #c7a15d;
   --oro-claro: #ead5a1;
 
   box-sizing: border-box;
-  width: min(100%, 420px);
-  margin: 20px auto;
-  padding: 24px;
-  text-align: center;
+  width: min(100%, 320px);
+  margin: 15px auto;
+  padding: 18px;
   color: var(--oro-claro);
   background:
     radial-gradient(
-      ellipse at 50% 20%,
+      ellipse at 50% 25%,
       rgba(111, 65, 49, .18),
-      transparent 58%
+      transparent 65%
     ),
-    linear-gradient(145deg, #17151d, #0d0e14 70%);
+    linear-gradient(145deg, #17151d, #0d0e14);
   border: 1px solid #80643c;
-  outline: 1px solid #3c3024;
-  outline-offset: -7px;
-  box-shadow: 0 12px 34px rgba(0, 0, 0, .38);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
   font-family: Georgia, "Times New Roman", serif;
+  text-align: center;
 }
 
 .medalla-magica *,
@@ -34,7 +31,7 @@
   box-sizing: border-box;
 }
 
-/* SELECTORES INVISIBLES */
+/* RADIOS INVISIBLES */
 
 .medalla-magica .estado-medalla {
   position: absolute !important;
@@ -42,121 +39,103 @@
   height: 1px !important;
   overflow: hidden !important;
   clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
   clip-path: inset(50%) !important;
+  white-space: nowrap !important;
 }
 
-/* =========================================
-   VISIBILIDAD DE LOS ESTADOS
-   Solo una cara visible a la vez
-   ========================================= */
+/* ESTADOS OCULTOS POR DEFECTO */
 
-.medalla-magica .contenido-medalla .cara-medalla {
+.medalla-magica .cara-medalla {
   display: none !important;
-  animation: aparicion-medalla .35s ease both;
 }
+
+/* MOSTRAR SOLO LA CARA SELECCIONADA */
 
 .medalla-magica #medalla-dormida:checked
 ~ .contenido-medalla .cara-dormida {
   display: block !important;
+  animation: medalla-aparece .3s ease both;
 }
 
 .medalla-magica #medalla-despierta:checked
 ~ .contenido-medalla .cara-despierta {
   display: block !important;
+  animation: medalla-aparece .3s ease both;
 }
 
-/* IMAGEN PRINCIPAL */
+/* LA IMAGEN ES EL BOTON */
+
+.medalla-magica .imagen-selector {
+  display: block;
+  width: 130px;
+  max-width: 100%;
+  margin: 0 auto 12px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+
+.medalla-magica .imagen-selector:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGEN DE LA MEDALLA */
 
 .medalla-magica .imagen-medalla {
   display: block;
-  width: 220px;
-  max-width: 100%;
-  height: 220px;
+  width: 100%;
+  height: 130px;
   object-fit: contain;
-  margin: 12px auto 20px;
-  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, .5));
+  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, .5));
 }
 
-/* RESPLANDOR DE LA MEDALLA DESPIERTA */
+/* BRILLO DEL ESTADO DESPIERTO */
 
 .medalla-magica #medalla-despierta:checked
 ~ .contenido-medalla .cara-despierta .imagen-medalla {
   filter:
-    drop-shadow(0 0 8px rgba(234, 213, 161, .8))
-    drop-shadow(0 0 22px rgba(199, 161, 93, .5));
+    drop-shadow(0 0 7px rgba(234, 213, 161, .85))
+    drop-shadow(0 0 17px rgba(199, 161, 93, .55));
+}
+
+/* INDICACION PARA PULSAR */
+
+.medalla-magica .indicacion-medalla {
+  margin: 0 0 12px;
+  color: #9c8d76;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 /* TITULO */
 
 .medalla-magica .titulo-medalla {
-  margin: 12px 0;
+  margin: 8px 0;
   color: var(--oro-claro);
-  font-size: 23px;
-  line-height: 1.4;
+  font-size: 18px;
+  line-height: 1.35;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-/* FRASE DESCRIPTIVA */
+/* FRASE */
 
 .medalla-magica .frase-medalla {
-  max-width: 340px;
-  margin: 12px auto;
+  margin: 8px auto 2px;
   color: #c9c0b2;
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-/* BOTONES DE SELECCION */
-
-.medalla-magica .opciones-medalla {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 22px;
-}
-
-.medalla-magica .boton-medalla {
-  display: inline-block;
-  padding: 10px 14px;
-  color: #cfc2a8;
-  background: #191820;
-  border: 1px solid #80643c;
-  cursor: pointer;
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 12px;
-  transition:
-    background .25s ease,
-    color .25s ease,
-    border-color .25s ease,
-    transform .25s ease;
+  line-height: 1.65;
 }
 
-.medalla-magica .boton-medalla:hover {
-  transform: translateY(-2px);
-  border-color: var(--oro-claro);
-}
+/* ANIMACION */
 
-/* RESALTAR EL ESTADO SELECCIONADO */
-
-.medalla-magica #medalla-dormida:checked
-~ .opciones-medalla label[for="medalla-dormida"],
-.medalla-magica #medalla-despierta:checked
-~ .opciones-medalla label[for="medalla-despierta"] {
-  color: var(--oro-claro);
-  background: #30271e;
-  border-color: var(--oro-claro);
-  box-shadow: inset 0 0 0 1px rgba(199, 161, 93, .18);
-}
-
-/* ANIMACION DE APARICION */
-
-@keyframes aparicion-medalla {
+@keyframes medalla-aparece {
   from {
     opacity: 0;
-    transform: translateY(5px);
+    transform: translateY(4px);
   }
 
   to {
@@ -165,31 +144,31 @@
   }
 }
 
-/* ADAPTACION A MOVILES */
+/* MOVIL */
 
-@media (max-width: 420px) {
+@media (max-width: 360px) {
   .medalla-magica {
-    padding: 18px;
+    width: calc(100% - 20px);
+    padding: 14px;
+  }
+
+  .medalla-magica .imagen-selector {
+    width: 115px;
   }
 
   .medalla-magica .imagen-medalla {
-    width: 190px;
-    height: 190px;
-  }
-
-  .medalla-magica .titulo-medalla {
-    font-size: 20px;
+    height: 115px;
   }
 }
 
-/* RESPETAR PREFERENCIAS DE MOVIMIENTO */
+/* REDUCIR MOVIMIENTO SI SE SOLICITA */
 
 @media (prefers-reduced-motion: reduce) {
   .medalla-magica .cara-medalla {
-    animation: none;
+    animation: none !important;
   }
 
-  .medalla-magica .boton-medalla {
+  .medalla-magica .imagen-selector {
     transition: none;
   }
-   }
+}
