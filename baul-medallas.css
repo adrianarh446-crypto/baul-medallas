@@ -40,25 +40,6 @@
   transition: box-shadow 0.3s ease-in-out;
 }
 
-/* Líneas decorativas laterales */
-.cma2,
-.cma3 {
-  position: absolute;
-  top: 35px;
-  width: 1px;
-  height: 70%;
-  background: linear-gradient(to bottom, gold, #f49116);
-  pointer-events: none;
-}
-
-.cma2 {
-  left: -10px;
-}
-
-.cma3 {
-  right: -10px;
-}
-
 /* Imagen central circular */
 .cma4 {
   width: 100px;
