@@ -1,70 +1,258 @@
 
-/* ==================================
-   PRUEBA DEL BAUL DE MEDALLAS
-   ================================== */
+/* ==========================================
+   BAUL DE MEDALLAS — FANTASIA OSCURA
+   Version de prueba: dos medallas
+   ========================================== */
 
-.baul-prueba {
-  width: 100%;
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
+.medal-baul {
+  --mb-gold: #c7a15d;
+  --mb-gold-light: #ead5a1;
+  --mb-ink: #11121a;
+  --mb-panel: #1b1921;
+  --mb-muted: #a99b82;
+
   box-sizing: border-box;
-  background: #17151d;
-  color: #ead5a1;
-  border: 2px solid #b99a56;
+  width: min(100%, 620px);
+  margin: 18px auto;
+  padding: 24px;
+  overflow: hidden;
+  color: #e6dcc9;
+  background:
+    radial-gradient(ellipse at 50% 20%, rgba(111, 65, 49, .18), transparent 58%),
+    linear-gradient(145deg, #17151d, #0d0e14 70%);
+  border: 1px solid #80643c;
+  outline: 1px solid #3c3024;
+  outline-offset: -7px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .38);
+  font-family: Georgia, "Times New Roman", serif;
   text-align: center;
-  font-family: Georgia, serif;
 }
 
-/* Ocultar los radios originales */
-.baul-prueba .medalla-radio {
-  display: none;
-}
-
-/* Zona de la medalla grande */
-.baul-prueba .medalla-panel {
-  display: none;
-  padding: 20px;
-  margin: 15px 0;
-  background: #30271e;
-  min-height: 180px;
+.medal-baul *,
+.medal-baul *::before,
+.medal-baul *::after {
   box-sizing: border-box;
 }
 
-/* Mostrar únicamente el panel seleccionado */
-#baul-medalla-1:checked ~ .medallas-contenido .medalla-panel-1,
-#baul-medalla-2:checked ~ .medallas-contenido .medalla-panel-2 {
+/* CABECERA */
+
+.medal-header {
+  padding: 7px 8px 20px;
+  border-bottom: 1px solid #67502f;
+}
+
+.medal-crown {
+  margin-bottom: 3px;
+  color: var(--mb-gold);
+  font-size: 43px;
+  line-height: 1.15;
+  text-shadow: 0 0 16px rgba(199, 161, 93, .2);
+}
+
+.medal-heading {
+  color: var(--mb-gold-light);
+  font-size: clamp(20px, 5vw, 29px);
+  line-height: 1.25;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.medal-subheading {
+  margin-top: 9px;
+  color: var(--mb-muted);
+  font-size: 10px;
+  line-height: 1.7;
+  letter-spacing: 2px;
+}
+
+/* RADIOS: OCULTOS, PERO FUNCIONALES */
+
+.medal-radio {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  clip-path: inset(50%) !important;
+}
+
+/* ZONA DE LA MEDALLA GRANDE */
+
+.medal-showcase {
+  position: relative;
+  margin: 18px auto 0;
+  padding: 22px 14px 20px;
+  min-height: 330px;
+  background: rgba(0, 0, 0, .16);
+  border: 1px solid rgba(128, 100, 60, .35);
+}
+
+.medal-panel {
+  display: none;
+  animation: medal-reveal .35s ease both;
+}
+
+.medal-panel img {
   display: block;
-}
-
-/* Miniaturas seleccionables */
-.baul-prueba .medalla-miniatura {
-  display: inline-block;
-  padding: 12px;
-  margin: 5px;
-  border: 1px solid #b99a56;
-  cursor: pointer;
-  background: #24202b;
-  color: #ead5a1;
-}
-
-/* Destacar la miniatura seleccionada */
-#baul-medalla-1:checked ~ .medallas-miniaturas label[for="baul-medalla-1"],
-#baul-medalla-2:checked ~ .medallas-miniaturas label[for="baul-medalla-2"] {
-  background: #59472b;
-  border-color: #f0d28a;
-}
-
-/* Imagen grande */
-.baul-prueba .medalla-panel img {
-  display: block;
-  width: 120px;
-  height: 120px;
+  width: min(100%, 255px);
+  max-height: 290px;
   object-fit: contain;
-  margin: 15px auto;
+  margin: 0 auto 18px;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, .55));
 }
 
-/* COMPROBACIÓN: OCULTAR TODOS LOS PANELES */
-.baul-prueba .medalla-panel {
-  display: none !important;
+.medal-title {
+  margin: 8px auto;
+  color: var(--mb-gold-light);
+  font-size: clamp(20px, 4.5vw, 27px);
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.medal-rarity {
+  margin: 8px 0 12px;
+  color: var(--mb-gold);
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+.medal-panel p {
+  max-width: 390px;
+  margin: 0 auto;
+  color: #c9c0b2;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* SELECCION: MOSTRAR SOLO EL PANEL MARCADO
+   Los radios preceden a .medal-showcase */
+
+#patatita-m1:checked ~ .medal-showcase .medal-panel-1,
+#patatita-m2:checked ~ .medal-showcase .medal-panel-2 {
+  display: block;
+}
+
+/* TITULO DE MINIATURAS */
+
+.medal-section-title {
+  margin: 23px 0 13px;
+  color: var(--mb-gold);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+/* MINIATURAS */
+
+.medal-thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.medal-thumb {
+  display: block;
+  width: 112px;
+  padding: 9px 7px 10px;
+  color: #cfc2a8;
+  background: #191820;
+  border: 1px solid #4c3c2b;
+  cursor: pointer;
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+.medal-thumb:hover {
+  transform: translateY(-2px);
+  border-color: var(--mb-gold);
+  background: #24202a;
+}
+
+.medal-thumb img {
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 8px;
+  object-fit: contain;
+}
+
+.medal-thumb span {
+  display: block;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* DESTACAR LA MINIATURA SELECCIONADA */
+
+#patatita-m1:checked ~ .medal-thumbnails label[for="patatita-m1"],
+#patatita-m2:checked ~ .medal-thumbnails label[for="patatita-m2"] {
+  border-color: var(--mb-gold);
+  background: #30271e;
+  box-shadow: inset 0 0 0 1px rgba(199, 161, 93, .18);
+}
+
+/* PIE */
+
+.medal-footer {
+  margin-top: 23px;
+  padding-top: 14px;
+  color: #9c8d76;
+  border-top: 1px solid #4c3c2b;
+  font-size: 9px;
+  letter-spacing: 1.8px;
+}
+
+/* ANIMACION */
+
+@keyframes medal-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOVIL */
+
+@media (max-width: 420px) {
+  .medal-baul {
+    padding: 17px;
+  }
+
+  .medal-showcase {
+    min-height: 260px;
+    padding: 16px 8px;
+  }
+
+  .medal-panel img {
+    width: min(100%, 210px);
+  }
+
+  .medal-thumb {
+    width: 96px;
+  }
+
+  .medal-thumb img {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* ACCESIBILIDAD */
+
+@media (prefers-reduced-motion: reduce) {
+  .medal-panel {
+    animation: none;
+  }
+
+  .medal-thumb {
+    transition: none;
+  }
 }
