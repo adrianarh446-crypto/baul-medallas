@@ -272,3 +272,11 @@
     transition: none;
   }
 }
+
+#medal-a:checked ~ #panel-a {
+  display: block !important;
+}
+
+#medal-b:checked ~ #panel-b {
+  display: block !important;
+}
