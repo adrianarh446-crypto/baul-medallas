@@ -235,3 +235,40 @@
   line-height: 1.4;
 }
 
+
+/* AJUSTE FINAL: EL CONTENEDOR NO DEBE SER ALTO */
+
+.medalla-magica {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 10px !important;
+  margin: 8px auto !important;
+}
+
+.medalla-magica .contenido-medalla {
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.medalla-magica .cara-medalla {
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.medalla-magica .imagen-selector {
+  margin-bottom: 0 !important;
+}
+
+.medalla-magica .titulo-medalla {
+  margin-top: 2px !important;
+  margin-bottom: 4px !important;
+}
+
+.medalla-magica .frase-medalla {
+  margin-top: 2px !important;
+}
+
