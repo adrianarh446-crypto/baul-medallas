@@ -272,3 +272,113 @@
   margin-top: 2px !important;
 }
 
+/* ==========================================
+   MEDALLA SIN TARJETA
+   ========================================== */
+
+.medalla-magica {
+  width: 150px !important;
+  max-width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 10px auto !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  overflow: visible !important;
+  text-align: center;
+}
+
+/* CONTENIDO SIN ESPACIOS EXTRA */
+
+.medalla-magica .contenido-medalla,
+.medalla-magica .cara-medalla {
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* LA MEDALLA */
+
+.medalla-magica .imagen-selector {
+  display: block;
+  width: 100px !important;
+  max-width: 100% !important;
+  margin: 0 auto 5px !important;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer;
+  transition: transform .25s ease;
+}
+
+.medalla-magica .imagen-selector:hover {
+  transform: scale(1.06);
+}
+
+.medalla-magica .imagen-medalla {
+  display: block;
+  width: 100px !important;
+  height: 100px !important;
+  max-width: 100% !important;
+  margin: 0 auto !important;
+  object-fit: contain;
+}
+
+/* BRILLO DE LA MEDALLA DESPIERTA */
+
+.medalla-magica #medalla-despierta:checked
+~ .contenido-medalla .cara-despierta .imagen-medalla {
+  filter:
+    drop-shadow(0 0 5px rgba(234, 213, 161, .85))
+    drop-shadow(0 0 12px rgba(199, 161, 93, .6));
+}
+
+/* INDICACION PEQUEÑA */
+
+.medalla-magica .indicacion-medalla {
+  margin: 2px 0 4px !important;
+  color: #9c8d76;
+  font-size: 8px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* TITULO */
+
+.medalla-magica .titulo-medalla {
+  margin: 4px 0 !important;
+  color: #ead5a1;
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: .4px;
+  text-transform: uppercase;
+}
+
+/* FRASE */
+
+.medalla-magica .frase-medalla {
+  margin: 3px 0 0 !important;
+  color: #c9c0b2;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+/* ANIMACION */
+
+@keyframes medalla-aparece {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
