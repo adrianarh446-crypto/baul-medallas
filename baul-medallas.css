@@ -180,3 +180,58 @@
     transition: none;
   }
      }
+
+
+/* TARJETA: AJUSTADA AL CONTENIDO */
+
+.medalla-magica {
+  width: min(100%, 170px);
+  height: auto !important;
+  min-height: 0 !important;
+  margin: 10px auto;
+  padding: 10px;
+  overflow: hidden;
+}
+
+/* IMAGEN: MENOS ESPACIO DEBAJO */
+
+.medalla-magica .imagen-selector {
+  width: 100px;
+  max-width: 100%;
+  margin: 0 auto 2px;
+  padding: 0;
+}
+
+/* IMAGEN */
+
+.medalla-magica .imagen-medalla {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+/* INDICACION: MÁS COMPACTA */
+
+.medalla-magica .indicacion-medalla {
+  margin: 0 0 4px;
+  font-size: 8px;
+  line-height: 1.2;
+}
+
+/* TITULO: PEGADO A LA IMAGEN */
+
+.medalla-magica .titulo-medalla {
+  margin: 3px 0 5px;
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+/* FRASE */
+
+.medalla-magica .frase-medalla {
+  margin: 3px 0 0;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
