@@ -1,493 +1,183 @@
 
-/* ==========================================
-   MEDALLA ENCANTADA — VERSION MINI
-   ========================================== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
-.medalla-magica {
-  --oro: #c7a15d;
-  --oro-claro: #ead5a1;
+.cma0 {
+  width: 220px;
+  height: 250px;
+  position: relative;
+  margin: 20px auto;
+  font-family: "Bebas Neue", sans-serif;
+}
 
+/* Control para mostrar la frase al pulsar */
+.cma-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+/* Marco circular */
+.cma1 {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  top: 15px;
+  left: 9px;
   box-sizing: border-box;
-  width: min(100%, 170px);
-  height: auto;
-  min-height: 0;
-  margin: 10px auto;
-  padding: 12px;
-  color: var(--oro-claro);
-  background:
-    radial-gradient(
-      ellipse at 50% 25%,
-      rgba(111, 65, 49, .18),
-      transparent 65%
-    ),
-    linear-gradient(145deg, #17151d, #0d0e14);
-  border: 1px solid #80643c;
-  box-shadow: 0 5px 14px rgba(0, 0, 0, .30);
-  font-family: Georgia, "Times New Roman", serif;
-  text-align: center;
-}
 
-.medalla-magica *,
-.medalla-magica *::before,
-.medalla-magica *::after {
-  box-sizing: border-box;
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-/* RADIOS INVISIBLES */
+  border: 2px solid #e5b82e;
+  border-radius: 50%;
+  background-color: #0f0f0f;
+  background-size: cover;
+  background-position: center;
 
-.medalla-magica .estado-medalla {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  clip-path: inset(50%) !important;
-  white-space: nowrap !important;
-}
-
-/* OCULTAR ESTADOS NO SELECCIONADOS */
-
-.medalla-magica .cara-medalla {
-  display: none !important;
-}
-
-/* MOSTRAR LA CARA SELECCIONADA */
-
-.medalla-magica #medalla-dormida:checked
-~ .contenido-medalla .cara-dormida {
-  display: block !important;
-  animation: medalla-aparece .3s ease both;
-}
-
-.medalla-magica #medalla-despierta:checked
-~ .contenido-medalla .cara-despierta {
-  display: block !important;
-  animation: medalla-aparece .3s ease both;
-}
-
-/* IMAGEN CLICABLE */
-
-.medalla-magica .imagen-selector {
-  display: block;
-  width: 100px;
-  max-width: 100%;
-  margin: 0 auto 8px;
-  padding: 0;
-  border: 0;
-  background: transparent;
   cursor: pointer;
-  transition: transform .25s ease;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.medalla-magica .imagen-selector:hover {
-  transform: scale(1.04);
+/* Líneas decorativas laterales */
+.cma2,
+.cma3 {
+  position: absolute;
+  top: 35px;
+  width: 1px;
+  height: 70%;
+  background: linear-gradient(to bottom, gold, #f49116);
+  pointer-events: none;
 }
 
-/* IMAGEN DE LA MEDALLA */
-
-.medalla-magica .imagen-medalla {
-  display: block;
-  width: 100px;
-  max-width: 100%;
-  height: 100px;
-  margin: 0 auto;
-  object-fit: contain;
-  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .45));
+.cma2 {
+  left: -10px;
 }
 
-/* BRILLO DEL ESTADO DESPIERTO */
-
-.medalla-magica #medalla-despierta:checked
-~ .contenido-medalla .cara-despierta .imagen-medalla {
-  filter:
-    drop-shadow(0 0 5px rgba(234, 213, 161, .85))
-    drop-shadow(0 0 11px rgba(199, 161, 93, .55));
+.cma3 {
+  right: -10px;
 }
 
-/* INDICACION */
-
-.medalla-magica .indicacion-medalla {
-  margin: 2px 0 7px;
-  color: #9c8d76;
-  font-size: 8px;
-  line-height: 1.4;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-/* TITULO */
-
-.medalla-magica .titulo-medalla {
-  margin: 6px 0;
-  color: var(--oro-claro);
-  font-size: 13px;
-  line-height: 1.3;
-  letter-spacing: .5px;
-  text-transform: uppercase;
-  overflow-wrap: anywhere;
-}
-
-/* FRASE */
-
-.medalla-magica .frase-medalla {
-  margin: 5px 0 0;
-  color: #c9c0b2;
-  font-size: 10px;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
-
-/* ANIMACION */
-
-@keyframes medalla-aparece {
-  from {
-    opacity: 0;
-    transform: translateY(3px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* PANTALLAS MUY PEQUEÑAS */
-
-@media (max-width: 360px) {
-  .medalla-magica {
-    width: min(100%, 160px);
-    padding: 10px;
-  }
-
-  .medalla-magica .imagen-selector,
-  .medalla-magica .imagen-medalla {
-    width: 90px;
-  }
-
-  .medalla-magica .imagen-medalla {
-    height: 90px;
-  }
-}
-
-/* REDUCIR MOVIMIENTO */
-
-@media (prefers-reduced-motion: reduce) {
-  .medalla-magica .cara-medalla {
-    animation: none !important;
-  }
-
-  .medalla-magica .imagen-selector {
-    transition: none;
-  }
-     }
-
-
-/* TARJETA: AJUSTADA AL CONTENIDO */
-
-.medalla-magica {
-  width: min(100%, 170px);
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 10px auto;
-  padding: 10px;
-  overflow: hidden;
-}
-
-/* IMAGEN: MENOS ESPACIO DEBAJO */
-
-.medalla-magica .imagen-selector {
-  width: 100px;
-  max-width: 100%;
-  margin: 0 auto 2px;
-  padding: 0;
-}
-
-/* IMAGEN */
-
-.medalla-magica .imagen-medalla {
+/* Imagen central circular */
+.cma4 {
   width: 100px;
   height: 100px;
-  margin: 0 auto;
-  object-fit: contain;
+  position: absolute;
+  z-index: 1;
+
+  border: 2px solid #e5b82e;
+  border-radius: 50%;
+  box-sizing: border-box;
+
+  background-size: cover;
+  background-position: center;
+
+  transition: transform 0.3s ease-in-out;
+  pointer-events: none;
 }
 
-/* INDICACION: MÁS COMPACTA */
+/* Premio superior */
+.cma-premio {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
 
-.medalla-magica .indicacion-medalla {
-  margin: 0 0 4px;
-  font-size: 8px;
-  line-height: 1.2;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #5b4a18;
+  background: linear-gradient(to bottom, #ffe95b, #f49116);
+  border: 2px solid #f5d65b;
+  font-family: sans-serif;
+  font-size: 27px;
+  line-height: 1;
+  pointer-events: none;
 }
 
-/* TITULO: PEGADO A LA IMAGEN */
+/* Título permanente debajo del marco */
+.cma5 {
+  position: absolute;
+  top: 210px;
+  left: 50%;
+  transform: translateX(-50%);
 
-.medalla-magica .titulo-medalla {
-  margin: 3px 0 5px;
-  font-size: 13px;
-  line-height: 1.25;
-}
-
-/* FRASE */
-
-.medalla-magica .frase-medalla {
-  margin: 3px 0 0;
-  font-size: 10px;
-  line-height: 1.4;
-}
-
-
-/* AJUSTE FINAL: EL CONTENEDOR NO DEBE SER ALTO */
-
-.medalla-magica {
-  height: auto !important;
-  min-height: 0 !important;
-  padding: 10px !important;
-  margin: 8px auto !important;
-}
-
-.medalla-magica .contenido-medalla {
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.medalla-magica .cara-medalla {
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.medalla-magica .imagen-selector {
-  margin-bottom: 0 !important;
-}
-
-.medalla-magica .titulo-medalla {
-  margin-top: 2px !important;
-  margin-bottom: 4px !important;
-}
-
-.medalla-magica .frase-medalla {
-  margin-top: 2px !important;
-}
-
-/* ==========================================
-   MEDALLA SIN TARJETA
-   ========================================== */
-
-.medalla-magica {
-  width: 150px !important;
-  max-width: 100% !important;
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 10px auto !important;
-  padding: 0 !important;
-
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-
-  overflow: visible !important;
+  width: 220px;
   text-align: center;
-}
 
-/* CONTENIDO SIN ESPACIOS EXTRA */
-
-.medalla-magica .contenido-medalla,
-.medalla-magica .cara-medalla {
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* LA MEDALLA */
-
-.medalla-magica .imagen-selector {
-  display: block;
-  width: 100px !important;
-  max-width: 100% !important;
-  margin: 0 auto 5px !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  cursor: pointer;
-  transition: transform .25s ease;
-}
-
-.medalla-magica .imagen-selector:hover {
-  transform: scale(1.06);
-}
-
-.medalla-magica .imagen-medalla {
-  display: block;
-  width: 100px !important;
-  height: 100px !important;
-  max-width: 100% !important;
-  margin: 0 auto !important;
-  object-fit: contain;
-}
-
-/* BRILLO DE LA MEDALLA DESPIERTA */
-
-.medalla-magica #medalla-despierta:checked
-~ .contenido-medalla .cara-despierta .imagen-medalla {
-  filter:
-    drop-shadow(0 0 5px rgba(234, 213, 161, .85))
-    drop-shadow(0 0 12px rgba(199, 161, 93, .6));
-}
-
-/* INDICACION PEQUEÑA */
-
-.medalla-magica .indicacion-medalla {
-  margin: 2px 0 4px !important;
-  color: #9c8d76;
-  font-size: 8px;
-  line-height: 1.2;
+  font-size: 15px;
+  font-weight: 400;
   letter-spacing: 1px;
+  line-height: 1.2;
+
+  color: #f5d65b;
+  pointer-events: none;
 }
 
-/* TITULO */
+/* Frase: oculta hasta pulsar */
+.cma-frase {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -40%);
 
-.medalla-magica .titulo-medalla {
-  margin: 4px 0 !important;
-  color: #ead5a1;
-  font-size: 13px;
-  line-height: 1.3;
-  letter-spacing: .4px;
-  text-transform: uppercase;
-}
+  width: 72%;
+  z-index: 4;
 
-/* FRASE */
-
-.medalla-magica .frase-medalla {
-  margin: 3px 0 0 !important;
-  color: #c9c0b2;
-  font-size: 10px;
+  text-align: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1px;
   line-height: 1.4;
+
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
-/* ANIMACION */
+/* Efectos al pasar el ratón */
+.cma1:hover {
+  box-shadow: 0 0 12px rgba(245, 214, 91, 0.25);
+}
 
-@keyframes medalla-aparece {
-  from {
-    opacity: 0;
-    transform: translateY(3px);
-  }
-  to {
-    opacity: 1;
+.cma1:hover .cma4 {
+  animation: levitate01 1.5s ease-in-out infinite;
+}
+
+/* Al pulsar, aparece la frase */
+.cma-toggle:checked + .cma1 .cma-frase {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
+}
+
+/* Oscurecer un poco la imagen para facilitar la lectura */
+.cma-toggle:checked + .cma1::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@keyframes levitate01 {
+  0%, 100% {
     transform: translateY(0);
   }
-}
 
-/* ==========================================
-   AJUSTE FINAL: MEDALLA MUY COMPACTA
-   ========================================== */
-
-.medalla-magica {
-  width: 150px !important;
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 8px auto !important;
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
-  box-shadow: none !important;
-}
-
-/* Eliminar alturas y espacios heredados */
-.medalla-magica .contenido-medalla,
-.medalla-magica .cara-medalla {
-  height: auto !important;
-  min-height: 0 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Imagen: tamaño y separación */
-.medalla-magica .imagen-selector {
-  width: 80px !important;
-  height: auto !important;
-  margin: 0 auto 4px !important;
-  padding: 0 !important;
-}
-
-.medalla-magica .imagen-medalla {
-  width: 80px !important;
-  height: 80px !important;
-  margin: 0 auto !important;
-  object-fit: contain;
-}
-
-/* Quitar la indicación si está ocupando espacio */
-.medalla-magica .indicacion-medalla {
-  display: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-/* Título pegado a la imagen */
-.medalla-magica .titulo-medalla {
-  margin: 4px 0 3px !important;
-  padding: 0 !important;
-  font-size: 12px !important;
-  line-height: 1.3 !important;
-}
-
-/* Frase justo debajo */
-.medalla-magica .frase-medalla {
-  margin: 0 !important;
-  padding: 0 !important;
-  font-size: 10px !important;
-  line-height: 1.4 !important;
-}
-
-/* Evitar márgenes de párrafo inesperados */
-.medalla-magica p {
-  margin-block: 0 !important;
-}
-
-
-/* DIAGNÓSTICO: ELIMINAR ALTURAS Y ESPACIOS HEREDADOS */
-
-.medalla-magica,
-.medalla-magica .contenido-medalla,
-.medalla-magica .cara-medalla,
-.medalla-magica .cara-dormida,
-.medalla-magica .cara-despierta {
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
-  margin-top: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* Evitar que los elementos internos creen huecos */
-.medalla-magica .cara-medalla > * {
-  position: static !important;
-  flex: 0 0 auto !important;
-}
-
-/* Mantener compacto el conjunto visible */
-.medalla-magica .cara-medalla {
-  width: 100% !important;
-  gap: 0 !important;
-}
-
-.medalla-magica .imagen-selector {
-  margin-bottom: 4px !important;
-}
-
-.medalla-magica .titulo-medalla {
-  margin-top: 4px !important;
-}
-
-.medalla-magica .frase-medalla {
-  margin-top: 2px !important;
-}
-
+  50% {
+    transform: translateY(-6px);
+  }
+   }
+   
