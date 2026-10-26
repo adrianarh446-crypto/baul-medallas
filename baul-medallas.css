@@ -256,3 +256,17 @@
     transition: none;
   }
 }
+
+/* CORRECCION DE VISIBILIDAD DE LOS PANELES */
+
+.medal-baul .medal-showcase .medal-panel {
+  display: none;
+}
+
+.medal-baul #patatita-m1:checked ~ .medal-showcase .medal-panel-1 {
+  display: block !important;
+}
+
+.medal-baul #patatita-m2:checked ~ .medal-showcase .medal-panel-2 {
+  display: block !important;
+}
