@@ -63,3 +63,8 @@
   object-fit: contain;
   margin: 15px auto;
 }
+
+/* COMPROBACIÓN: OCULTAR TODOS LOS PANELES */
+.baul-prueba .medalla-panel {
+  display: none !important;
+}
