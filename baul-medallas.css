@@ -98,19 +98,25 @@
 }
 
 
-/* Ocultar todos los paneles inicialmente */
 
-.medal-showcase > .medal-panel {
-  display: none;
+/* OCULTAR TODAS LAS MEDALLAS */
+.medal-baul .medal-showcase .medal-panel {
+  display: none !important;
 }
 
-/* Mostrar el panel correspondiente al radio seleccionado */
+/* MOSTRAR LA MEDALLA 1 */
+.medal-baul .medal-showcase #patatita-m1:checked ~ .medal-panel-1 {
+  display: block !important;
+}
 
-#patatita-m1:checked ~ .medal-panel-1,
-#patatita-m2:checked ~ .medal-panel-2,
-#patatita-m3:checked ~ .medal-panel-3 {
-  display: block;
-  animation: medal-reveal .3s ease both;
+/* MOSTRAR LA MEDALLA 2 */
+.medal-baul .medal-showcase #patatita-m2:checked ~ .medal-panel-2 {
+  display: block !important;
+}
+
+/* MOSTRAR LA MEDALLA 3 */
+.medal-baul .medal-showcase #patatita-m3:checked ~ .medal-panel-3 {
+  display: block !important;
 }
 
 
