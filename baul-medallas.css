@@ -97,18 +97,22 @@
   border: 1px solid rgba(128,100,60,.35);
 }
 
-/* Cada radio debe estar inmediatamente antes
-   del panel que controla. */
+
+/* Ocultar todos los paneles inicialmente */
 
 .medal-showcase > .medal-panel {
   display: none;
 }
 
-.medal-showcase > .medal-radio:checked
-+ .medal-panel {
+/* Mostrar el panel correspondiente al radio seleccionado */
+
+#patatita-m1:checked ~ .medal-panel-1,
+#patatita-m2:checked ~ .medal-panel-2,
+#patatita-m3:checked ~ .medal-panel-3 {
   display: block;
   animation: medal-reveal .3s ease both;
 }
+
 
 /* IMAGEN GRANDE */
 
