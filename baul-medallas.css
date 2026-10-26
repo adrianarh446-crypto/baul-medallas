@@ -1,6 +1,6 @@
 
 /* ==========================================
-   MEDALLA ENCANTADA — VERSION COMPACTA
+   MEDALLA ENCANTADA — VERSION MINI
    ========================================== */
 
 .medalla-magica {
@@ -8,9 +8,11 @@
   --oro-claro: #ead5a1;
 
   box-sizing: border-box;
-  width: min(100%, 320px);
-  margin: 15px auto;
-  padding: 18px;
+  width: min(100%, 170px);
+  height: auto;
+  min-height: 0;
+  margin: 10px auto;
+  padding: 12px;
   color: var(--oro-claro);
   background:
     radial-gradient(
@@ -20,7 +22,7 @@
     ),
     linear-gradient(145deg, #17151d, #0d0e14);
   border: 1px solid #80643c;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, .35);
+  box-shadow: 0 5px 14px rgba(0, 0, 0, .30);
   font-family: Georgia, "Times New Roman", serif;
   text-align: center;
 }
@@ -43,13 +45,13 @@
   white-space: nowrap !important;
 }
 
-/* ESTADOS OCULTOS POR DEFECTO */
+/* OCULTAR ESTADOS NO SELECCIONADOS */
 
 .medalla-magica .cara-medalla {
   display: none !important;
 }
 
-/* MOSTRAR SOLO LA CARA SELECCIONADA */
+/* MOSTRAR LA CARA SELECCIONADA */
 
 .medalla-magica #medalla-dormida:checked
 ~ .contenido-medalla .cara-dormida {
@@ -63,13 +65,13 @@
   animation: medalla-aparece .3s ease both;
 }
 
-/* LA IMAGEN ES EL BOTON */
+/* IMAGEN CLICABLE */
 
 .medalla-magica .imagen-selector {
   display: block;
-  width: 130px;
+  width: 100px;
   max-width: 100%;
-  margin: 0 auto 12px;
+  margin: 0 auto 8px;
   padding: 0;
   border: 0;
   background: transparent;
@@ -78,17 +80,19 @@
 }
 
 .medalla-magica .imagen-selector:hover {
-  transform: scale(1.05);
+  transform: scale(1.04);
 }
 
 /* IMAGEN DE LA MEDALLA */
 
 .medalla-magica .imagen-medalla {
   display: block;
-  width: 100%;
-  height: 130px;
+  width: 100px;
+  max-width: 100%;
+  height: 100px;
+  margin: 0 auto;
   object-fit: contain;
-  filter: drop-shadow(0 5px 8px rgba(0, 0, 0, .5));
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .45));
 }
 
 /* BRILLO DEL ESTADO DESPIERTO */
@@ -96,38 +100,41 @@
 .medalla-magica #medalla-despierta:checked
 ~ .contenido-medalla .cara-despierta .imagen-medalla {
   filter:
-    drop-shadow(0 0 7px rgba(234, 213, 161, .85))
-    drop-shadow(0 0 17px rgba(199, 161, 93, .55));
+    drop-shadow(0 0 5px rgba(234, 213, 161, .85))
+    drop-shadow(0 0 11px rgba(199, 161, 93, .55));
 }
 
-/* INDICACION PARA PULSAR */
+/* INDICACION */
 
 .medalla-magica .indicacion-medalla {
-  margin: 0 0 12px;
+  margin: 2px 0 7px;
   color: #9c8d76;
-  font-size: 9px;
-  letter-spacing: 1.5px;
+  font-size: 8px;
+  line-height: 1.4;
+  letter-spacing: 1px;
   text-transform: uppercase;
 }
 
 /* TITULO */
 
 .medalla-magica .titulo-medalla {
-  margin: 8px 0;
+  margin: 6px 0;
   color: var(--oro-claro);
-  font-size: 18px;
-  line-height: 1.35;
-  letter-spacing: 1px;
+  font-size: 13px;
+  line-height: 1.3;
+  letter-spacing: .5px;
   text-transform: uppercase;
+  overflow-wrap: anywhere;
 }
 
 /* FRASE */
 
 .medalla-magica .frase-medalla {
-  margin: 8px auto 2px;
+  margin: 5px 0 0;
   color: #c9c0b2;
-  font-size: 12px;
-  line-height: 1.65;
+  font-size: 10px;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 /* ANIMACION */
@@ -135,7 +142,7 @@
 @keyframes medalla-aparece {
   from {
     opacity: 0;
-    transform: translateY(4px);
+    transform: translateY(3px);
   }
 
   to {
@@ -144,24 +151,25 @@
   }
 }
 
-/* MOVIL */
+/* PANTALLAS MUY PEQUEÑAS */
 
 @media (max-width: 360px) {
   .medalla-magica {
-    width: calc(100% - 20px);
-    padding: 14px;
+    width: min(100%, 160px);
+    padding: 10px;
   }
 
-  .medalla-magica .imagen-selector {
-    width: 115px;
+  .medalla-magica .imagen-selector,
+  .medalla-magica .imagen-medalla {
+    width: 90px;
   }
 
   .medalla-magica .imagen-medalla {
-    height: 115px;
+    height: 90px;
   }
 }
 
-/* REDUCIR MOVIMIENTO SI SE SOLICITA */
+/* REDUCIR MOVIMIENTO */
 
 @media (prefers-reduced-motion: reduce) {
   .medalla-magica .cara-medalla {
@@ -171,4 +179,4 @@
   .medalla-magica .imagen-selector {
     transition: none;
   }
-}
+     }
